@@ -1,0 +1,46 @@
+
+@page {
+    margin: 0.5cm;
+}
+
+#home-btn,
+#coords-div,
+.esri-zoom,
+#locate-btn,
+.esri-scale-bar,
+.esri-icon-home,
+#ov-icon,
+#overviewDiv {
+    display: none !important;
+}
+
+#cp_outer_left,
+.top-bar,
+#Drawer_menus {
+    display: none;
+    width: 0;
+}
+
+.esri-popup__feature-buttons,
+.esri-icon-close {
+    display: none;
+    height: 0;
+    width: 0;
+}
+
+/* Attempt to fix popup transparency problem in IE - doesn't work:*/
+.esri-popup__main-containter {
+    background: rgba(255, 255, 255, 1.0) !important;
+}
+
+#cp_outer_center,
+#mapDiv {
+    float: none !important;
+    height: 100% !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+    top: 0 !important;
+    width: 100% !important;
+}

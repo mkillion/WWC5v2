@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="http://www.kgs.ku.edu/favicon.ico" type="image/x-icon" />
+
+    <style>
+        .help {
+            font: normal normal bold 16px arial;
+            margin: 8px;
+        }
+
+        li {
+            padding-bottom: 6px;
+        }
+
+        img {
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+<img src="images/kgs_logo.png">
+<h2>WWC5 Water Well Mapper Help Page</h2>
+<div class="help">
+    Contents:
+    <uL>
+        <li><a href="#contact">Contact KGS</a></li>
+        <li><a href="#general">General Info</a></li>
+        <li><a href="#display">Display Panel</a></li>
+        <li><a href="#go">Go To Panel</a></li>
+        <li><a href="#tools">Tools Panel</a></li>
+        <li><a href="#map">Map Window</a></li>
+        <li><a href="#popup">Popup Window</a></li>
+    </ul>
+
+    <hr>
+
+    <div id="contact">
+        <h3>Contact KGS</h3>
+        <ul>
+            <li>For questions about water wells and WWC5 data, contact the <a href="mailto:datares@kgs.ku.edu">Data Resources Library</a> (785-864-2161).</li>
+            <li>For technical questions about the map viewer, contact <a href="mailto:killion@kgs.ku.edu?subject=KGS WWC5 map viewer">GIS Services</a> (785-864-2131).</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div id="general">
+        <h3>General Info</h3>
+        <ul>
+            <li>The mapper is now mobile friendly, optimized for use on desktop computers, tablets, and most phones. To go directly to the mapper without going through the KGS website, bookmark this link: <a href="https://maps.kgs.ku.edu/wwc5">WWC5 Mapper</a></li>
+            <li>Settings such as layer visibility, labeling, classification, bookmarks, and last location are now saved between sessions by default. To completely clear these settings, clear the browser's history, including cookies.</li>
+            <li>The map can now be printed directly from the browser's Print command - use this option to include the well information popup. Or use the Print / Save Map tool to save the map to a PDF or other image format, with title and other map elements.</li>
+            <li>In addition to the zoom buttons, you can zoom in by holding the Shift key and drawing a box with the mouse.</li>
+        <ul>
+    </div>
+
+    <hr>
+
+    <div id="display">
+        <h3>Display Panel</h3>
+        <img src="images/display_help.png">
+    </div>
+
+    <hr>
+
+    <div id="go">
+        <h3>Go To Panel</h3>
+        <img src="images/goto_help.png">
+    </div>
+
+    <hr>
+
+    <div id="tools">
+        <h3>Tools Panel</h3>
+        <div>Buffer / Radius
+            <ul>
+                <li>Creates a buffer of a specified radius around a selected well, user-defined point, or searched address.</li>
+                <li>Highlight a well by selecting it, or double-click on a desired spot on the map to define a point, before using the tool.</li>
+                <li>Enter a buffer distance and select units.</li>
+                <li>Checking the "Select wells inside buffer" checkbox will display only the wells inside the buffer, and only those wells will be included in a data download.</li>
+                <li>Click on the eraser icon at the top of the panel to erase graphics and clear all buffers and filters.</li>
+            </ul>
+        </div>
+        <div>Classify Wells
+            <ul><li>Select a variable on which to color-code wells. Click on the Links/Legend panel to view the legend.</li></ul>
+        </div>
+        <div>Download Data
+            <ul>
+                <li>Creates comma-delimited text files with well and lithologic log information for wells visible <u>in the current map extent</u>.</li>
+                <li>Only wells visible on the map will be included in the download files. Applying a filter will restrict which wells are included.</li>
+        		<li>For other options to download well data visit the <a href='http://www.kgs.ku.edu/Magellan/WaterWell/index.html' target='_blank'>WWC5 Database</a>.</li>
+        		<li>To download a shapefile of all WWC5 wells, visit the <a href='https://kansasgis.org/index.cfm' target='_blank'>DASC catalog</a>.</li>
+        	</ul>
+        </div>
+        <div>Draw
+            <ul>
+                <li>Select the appropriate tool to draw point, line, rectangle, circle, and freehand polygon graphics on the map.</li>
+                <li>When drawing freehand polygons, either hold the mouse down and draw, or click individual points to shape the polygon.</li>
+                <li>Polygons can be reshaped or moved by selecting the Move or Reshape tool, then clicking on the polygon to move it or clicking on a vertex to reshape it.</li>
+                <li>Checking the "Select wells" box <u>before</u> drawing will select wells within the graphic and only those wells will be included in a data download.</li>
+                <li>The drawing graphic and selected wells can be cleared by clicking the Clear button in the Draw tool or the eraser icon at the top of the panel.</li>
+            </ul>
+        </div>
+        <div>Filter Wells
+            <ul>
+                <li>Restrict which wells are visible on the map (and included in downloaded text files) by applying a filter.</li>
+                <li>Filters are cumulative - e.g. "wells that are domestic AND were completed after 01/23/2015."</li>
+                <li>Click the Reset button to clear the filter and reset all input fields. Clicking the eraser icon at the top of the panel will also clear the filter.</li>
+        </div>
+        <div>Label Wells
+            <ul><li>Select a variable to label well symbols.</li></ul>
+        </div>
+        <div>Measure Area and Distance
+            <ul>
+                <li>Select "New Measurement" from either the Area or Distance section to begin a measurement.</li>
+                <li>Draw on the map, then double-click to close the polygon or end the line.</li>
+                <li>Change units by selecting from the Units dropdown box.</li>
+                <li>Clear the measurement and graphic by clicking the Clear Area/Distance Measurement buttons in the Measure tool or the eraser icon at the top of the tools panel.</li>
+            </ul>
+        </div>
+        <div>Print / Save Map
+            <ul>
+                <li>Enter a title for the map (optional).</li>
+                <li>Select page layout and size.</li>
+                <li>Select output format.</li>
+                <li>Checking the "Include legend" checkbox will put a legend of wells symbols at the bottom of the printout.</li>
+                <li>When the export is finished (may take up to 60 seconds or so), a download link will appear beneath the "Print / Save Map" button.</li>
+                <li>The map (map image only) can also be printed using the browser's Print command.</li>
+            </ul>
+        </div>
+    </div>
+
+    <hr>
+
+    <div id="map">
+        <h3>Map Window</h3>
+        <ul>
+            <li> On mobile devices, a Locate button &nbsp;<img src="images/locate.png" height="20px" width="20px">&nbsp; will appear beneath the Zoom In/Out buttons. <br>
+                Tapping the Locate button will zoom the map to your present location.</li>
+        </ul>
+        <img src="images/map_help.png">
+    </div>
+
+    <hr>
+
+    <div id="popup">
+        <h3>Popup Window</h3>
+        <img src="images/popup_help.png">
+    </div>
+</div>
+
+</body>
+</html>
