@@ -977,7 +977,7 @@ function(
 
     function createDialogs() {
 		// Report problem dialog:
-		var probDia = "<table><tr><td class='find-label'>Message:</td><td><textarea rows='4' cols='25' id='prob-msg' placeholder='Well ID is automatically included. Messages are anonymous unless contact info is included.'></textarea></td></tr>";
+		var probDia = "<table><tr><td class='find-label'>Message:</td><td><textarea rows='4' cols='25' id='prob-msg' placeholder='Well ID is automatically included. Please include email or phone number in case more info is needed.'></textarea></td></tr>";
 		probDia += "<tr><td></td><td><button class='find-button' onclick='sendProblem()'>Send</button></td></tr>";
 		probDia += "<tr><td colspan='2'><span class='toc-note'>(report website problems or suggestions <a href='mailto:killion@kgs.ku.edu'>here)</a></span></td></tr></table>";
 
