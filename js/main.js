@@ -1706,7 +1706,7 @@ function(
 		content += "<div class='download-link' id='wells-link'></div>";
 		content += "</div>";	// end download div.
 		// Draw-Select:
-		content += "<div class='find-header esri-icon-right-triangle-arrow' id='draw-tool'><span class='find-hdr-txt tools-txt'> Draw&nbsp;&nbsp;<img src='images/smNew.gif'></span></div>";
+		content += "<div class='find-header esri-icon-right-triangle-arrow' id='draw-tool'><span class='find-hdr-txt tools-txt'> Draw</span></div>";
 		content += "<div class='find-body hide' id='find-draw-tool'>";
 		content += "<div><input type='checkbox' id='draw-select-chk'> Select wells <span class='note'>(check box first, then draw)</span></div>";
 		content += "<div id='draw-div'></div>";
@@ -1741,7 +1741,7 @@ function(
 		content += "</div>";	// end label div.
 
 		// Area and distance:
-		content += "<div class='find-header esri-icon-right-triangle-arrow' id='meas-tool'><span class='find-hdr-txt tools-txt'> Measure Area and Distance&nbsp;&nbsp;<img src='images/smNew.gif'></span></div>";
+		content += "<div class='find-header esri-icon-right-triangle-arrow' id='meas-tool'><span class='find-hdr-txt tools-txt'> Measure Area and Distance</span></div>";
 		content += "<div class='find-body hide' id='find-meas-tool'>";
 		content += "<div>Area</div>";
 		content += "<div id='area-meas'></div>";
@@ -1753,13 +1753,13 @@ function(
 		content += "</div>";
 
 		// Area:
-		// content += "<div class='find-header esri-icon-right-triangle-arrow' id='area-tool'><span class='find-hdr-txt tools-txt'> Measure Area&nbsp;&nbsp;<img src='images/smNew.gif'></span></div>";
+		// content += "<div class='find-header esri-icon-right-triangle-arrow' id='area-tool'><span class='find-hdr-txt tools-txt'> Measure Area</span></div>";
 		// content += "<div class='find-body hide' id='find-area-tool'>";
 		// content += "<div id='area-meas'></div>";
 		// content += "<button class='find-button clear-meas-btn' onclick='clearAreaMeasurement()'>Clear Measurement</button>";
 		// content += "</div>";	// end area div.
 		// // Distance:
-		// content += "<div class='find-header esri-icon-right-triangle-arrow' id='distance-tool'><span class='find-hdr-txt tools-txt'> Measure Distance&nbsp;&nbsp;<img src='images/smNew.gif'></span></div>";
+		// content += "<div class='find-header esri-icon-right-triangle-arrow' id='distance-tool'><span class='find-hdr-txt tools-txt'> Measure Distance</span></div>";
 		// content += "<div class='find-body hide' id='find-distance-tool'>";
 		// content += "<div id='dist-meas'></div>";
 		// content += "<button class='find-button clear-meas-btn' onclick='clearDistMeasurement()'>Clear Measurement</button>";
