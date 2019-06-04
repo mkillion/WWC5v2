@@ -2238,7 +2238,7 @@ function(
 
 
     function wwc5Content(feature) {
-		var content = "<span class='esri-icon-table pu-icon' onclick='showFullInfo();' title='View Full KGS Databasse Record'></span><span class='esri-icon-contact pu-icon' onclick='$(&quot;#prob-dia&quot;).dialog(&quot;open&quot;);' title='Report a Location or Data Problem'></span><span class='esri-icon-documentation pu-icon' onclick='showWwc5Scan();' title='View Scanned WWC5 Form'></span>";
+		var content = "<span class='esri-icon-table pu-icon' onclick='showFullInfo();' title='View Full KGS Database Record'></span><span class='esri-icon-contact pu-icon' onclick='$(&quot;#prob-dia&quot;).dialog(&quot;open&quot;);' title='Report a Location or Data Problem'></span><span class='esri-icon-documentation pu-icon' onclick='showWwc5Scan();' title='View Scanned WWC5 Form'></span>";
 		content += "<table id='popup-tbl'>";
 		content += "<tr><td>Owner:</td><td>{OWNER_NAME}</td></tr>";
 		content += "<tr><td>Use:</td><td style='white-space:normal'>{USE_DESC}</td></tr>";
