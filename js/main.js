@@ -154,7 +154,7 @@ function(
 	findParams.returnGeometry = true;
 
     var basemapLayer = new TileLayer( {url:"//services.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer", id:"Base Map"} );
-    var plssLayer = new TileLayer( {url:"//services.kgs.ku.edu/arcgis8/rest/services/plss/plss/MapServer", id:"Section-Township-Range"} );
+    var plssLayer = new TileLayer( {url:"//services.kgs.ku.edu/arcgis8/rest/services/plss/plss_anno_labels/MapServer", id:"Section-Township-Range", visible:true} );
 	var topoLayer = new TileLayer( {url:"http://server.arcgisonline.com/ArcGIS/rest/services/USA_Topo_Maps/MapServer", id:"Topography", visible:false} );
 	var naip2017Layer = new ImageryLayer( {url:"//services.kgs.ku.edu/arcgis7/rest/services/IMAGERY_STATEWIDE/FSA_NAIP_2017_Color/ImageServer", id:"2017", visible:false} );
 	var naip2015Layer = new ImageryLayer( {url:"//services.kgs.ku.edu/arcgis7/rest/services/IMAGERY_STATEWIDE/FSA_NAIP_2015_Color/ImageServer", id:"2015", visible:false} );
