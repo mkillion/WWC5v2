@@ -2249,7 +2249,7 @@ function(
         content += "<tr><td>Estimated Yield (gpm):</td><td>{YIELD_TXT}</td></tr>";
         content += "<tr><td>Elevation (ft):</td><td>{ELEV_TXT}</td></tr>";
         content += "<tr><td>Completion Date:</td><td>{COMP_DATE_TXT}</td></tr>";
-        content += "<tr><td>Driller:</td><td style='white-space:normal'>{CONTRACTOR}</td></tr>";
+        content += "<tr><td>Driller:</td><td style='white-space:normal'>{CONTRACTOR_NAME}</td></tr>";
         content += "<tr><td>DWR Number:</td><td>{DWR_APPROPRIATION_NUMBER}</td></tr>";
         content += "<tr><td>KGS Record Number:</td><td id='seq-num'>{INPUT_SEQ_NUMBER}</td></tr>";
         content += "<tr><td>County:</td><td>{COUNTY}</td></tr>";
