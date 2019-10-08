@@ -1768,6 +1768,7 @@ function(
 		// Print/save:
 		content += "<div class='find-header esri-icon-right-triangle-arrow' id='print-tool'><span class='find-hdr-txt tools-txt'> Print / Save Map</span></div>";
 		content += "<div class='find-body hide' id='find-print-tool'>";
+		content += "<div class='print-ui'><span class='note'>The browser's print command can also be used to print the map (image only)</span></div>";
 		content += "<div class='print-ui'>Title<br><input type='text' size='28' id='map-title' placeholder='optional'></div>";
 		content += "<div class='print-ui'>Page setup<br><select id='page-setup'>";
 		content += "<option value='letter-ansi-a-landscape'>Letter ANSI A Landscape</option>";
