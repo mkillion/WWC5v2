@@ -1768,28 +1768,37 @@ function(
 		// Print/save:
 		content += "<div class='find-header esri-icon-right-triangle-arrow' id='print-tool'><span class='find-hdr-txt tools-txt'> Print / Save Map</span></div>";
 		content += "<div class='find-body hide' id='find-print-tool'>";
-		content += "<div class='print-ui'><span class='note'>The browser's print command can also be used to print the map (image only)</span></div>";
-		content += "<div class='print-ui'>Title<br><input type='text' size='28' id='map-title' placeholder='optional'></div>";
-		content += "<div class='print-ui'>Page setup<br><select id='page-setup'>";
-		content += "<option value='letter-ansi-a-landscape'>Letter ANSI A Landscape</option>";
-		content += "<option value='letter-ansi-a-portrait'>Letter ANSI A Portrait</option>";
+
+		content +="<div class='print-ui'>The Print Tool has been disabled while we attempt to fix a bug. In the meantime, use the browswer's print command (except in FireFox), or make a screen capture with the Snipping Tool (Windows) or cmd-shift-4 (Mac).</div>";
+
+		// content += "<div class='print-ui'><span class='note'>The browser's print command can also be used to print the map (image only)</span></div>";
+		// content += "<div class='print-ui'>Title<br><input type='text' size='28' id='map-title' placeholder='optional'></div>";
+		// content += "<div class='print-ui'>Page setup<br><select id='page-setup'>";
+		// content += "<option value='letter-ansi-a-landscape'>Letter ANSI A Landscape</option>";
+		// content += "<option value='letter-ansi-a-portrait'>Letter ANSI A Portrait</option>";
+
+		// keep next 3 lines commented:
 		// content += "<option value='tabloid-ansi-b-landscape'>Tabloid ANSI B Landscape</option>";
 		// content += "<option value='tabloid-ansi-b-portrait'>Tabloid ANSI B Portrait</option>";
 		// content += "<option value='map-only'>Map Only</option>";
-		content += "</select></div>";
-		content += "<div class='print-ui'>File format<br><select id='file-format'>";
-		content += "<option value='pdf'>PDF</option>";
-		content += "<option value='png32'>PNG32</option>";
-		content += "<option value='png8'>PNG8</option>";
-		content += "<option value='jpg'>JPG</option>";
-		content += "<option value='gif'>GIF</option>";
+
+		// content += "</select></div>";
+		// content += "<div class='print-ui'>File format<br><select id='file-format'>";
+		// content += "<option value='pdf'>PDF</option>";
+		// content += "<option value='png32'>PNG32</option>";
+		// content += "<option value='png8'>PNG8</option>";
+		// content += "<option value='jpg'>JPG</option>";
+		// content += "<option value='gif'>GIF</option>";
+
+		// keep next 3 lines commented:
 		// content += "<option value='eps'>EPS</option>";
 		// content += "<option value='svg'>SVG</option>";
 		// content += "<option value='svgz'>SVGZ</option>";
-		content += "</select></div>";
-		content += "<div class='print-ui'><input type='checkbox' id='incl-legend' checked>Include legend</div>";
-		content += "<div class='print-ui'><button id='print-btn' class='find-button' onclick='printMap()'>Print / Save</button><img id='loader3' class='hide' src='images/ajax-loader.gif'>";
-		content += "<div id='print-link'></div>";
+
+		// content += "</select></div>";
+		// content += "<div class='print-ui'><input type='checkbox' id='incl-legend' checked>Include legend</div>";
+		// content += "<div class='print-ui'><button id='print-btn' class='find-button' onclick='printMap()'>Print / Save</button><img id='loader3' class='hide' src='images/ajax-loader.gif'>";
+		// content += "<div id='print-link'></div>";
 		content += '</div></div>';	// end print div.
 
         menuObj = {
