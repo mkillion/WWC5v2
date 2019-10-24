@@ -837,22 +837,22 @@ function(
 	var distanceWidget = new DistanceMeasurement2D( {
 		container: "dist-meas",
 		viewModel: {
-			mode: "geodesic",
+			// mode: "geodesic",
 			unit: "us-feet",
 			view: view
 		}
 	} );
-	distanceWidget.viewModel.modes.splice(0,2);
+	// distanceWidget.viewModel.modes.splice(0,2);
 
 	var areaWidget = new AreaMeasurement2D( {
   		container: "area-meas",
 		viewModel: {
-			mode: "geodesic",
+			// mode: "geodesic",
 			unit: "square-us-feet",
 			view: view
 		}
 	} );
-	areaWidget.viewModel.modes.splice(0,2);
+	// areaWidget.viewModel.modes.splice(0,2);
 
 	var legend = new Legend( {
  		view: view,
@@ -1427,11 +1427,41 @@ function(
 	}
 
 
+	takeScreenshot = function() {
+		var title = dom.byId("map-title").value;
+		var orientation = dom.byId("page-setup").value;
+
+		if (orientation === "landscape") {
+			var options = {
+	  			width: 910,
+	  			height: 525
+			};
+		} else {
+			var options = {
+	  			width: 680,
+	  			height: 775
+			};
+		}
+
+		view.takeScreenshot(options).then(function(screenshot) {
+			$("#loader3").show();
+
+			var packet = { "screenshot": screenshot.dataUrl, "orientation": orientation, "title": title };
+
+			$.post( "printPDF.cfm", packet, function(response) {
+				var win = window.open(response, "target='_blank'");
+				$("#loader3").hide();
+			} );
+		} );
+	}
+
+
 	printMap = function() {
 		$("#loader3").show();
 		$("#print-link").html("");
 
-		var printTask = new PrintTask( {url: "https://services.kgs.ku.edu/arcgis8/rest/services/util/ExportWebMap/GPServer/Export%20Web%20Map"} );
+		// var printTask = new PrintTask( {url: "https://services.kgs.ku.edu/arcgis8/rest/services/util/ExportWebMap/GPServer/Export%20Web%20Map"} );
+		var printTask = new PrintTask( {url: "http://services.kgs.ku.edu/arcgis2/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task"} );
 
 		var classificationType = $("input[name='ct']:checked").val();
 		switch (classificationType) {
@@ -1469,9 +1499,9 @@ function(
 		 	layoutOptions: {
 		   		titleText: dom.byId("map-title").value,
 		   		authorText: "Kansas Geological Survey - https://maps.kgs.ku.edu/wwc5",
-				scalebarUnit: "Miles",
-				legendLayers: legendLyrs,
-				copyrightText: legendTitle	// Highjacking this text element to display legend title info (in custom templates - Templates_Custom folder).
+				scalebarUnit: "Miles"
+				// legendLayers: legendLyrs,
+				// copyrightText: legendTitle	// Highjacking this text element to display legend title info (in custom templates - Templates_Custom folder).
 		 	}
 		} );
 
@@ -1766,10 +1796,10 @@ function(
 		// content += "</div>";	// end distance div.
 
 		// Print/save:
-		content += "<div class='find-header esri-icon-right-triangle-arrow' id='print-tool'><span class='find-hdr-txt tools-txt'> Print / Save Map</span></div>";
+		content += "<div class='find-header esri-icon-right-triangle-arrow' id='print-tool'><span class='find-hdr-txt tools-txt'> Print Map to PDF</span></div>";
 		content += "<div class='find-body hide' id='find-print-tool'>";
 
-		content +="<div class='print-ui'>The Print Tool has been disabled while we attempt to fix a bug. In the meantime, use the browswer's print command (except in FireFox), or make a screen capture with the Snipping Tool (Windows) or cmd-shift-4 (Mac).</div>";
+		// content +="<div class='print-ui'>The Print Tool has been disabled while we attempt to fix a bug. In the meantime, use the browswer's print command (except in FireFox), or make a screen capture with the Snipping Tool (Windows) or cmd-shift-4 (Mac).</div>";
 
 		// content += "<div class='print-ui'><span class='note'>The browser's print command can also be used to print the map (image only)</span></div>";
 		// content += "<div class='print-ui'>Title<br><input type='text' size='28' id='map-title' placeholder='optional'></div>";
@@ -1796,9 +1826,19 @@ function(
 		// content += "<option value='svgz'>SVGZ</option>";
 
 		// content += "</select></div>";
-		// content += "<div class='print-ui'><input type='checkbox' id='incl-legend' checked>Include legend</div>";
+		// // content += "<div class='print-ui'><input type='checkbox' id='incl-legend' checked>Include legend</div>";
 		// content += "<div class='print-ui'><button id='print-btn' class='find-button' onclick='printMap()'>Print / Save</button><img id='loader3' class='hide' src='images/ajax-loader.gif'>";
-		// content += "<div id='print-link'></div>";
+
+		// Screenshot printing through CF:
+		content += "<div class='print-ui'>Title<br><input type='text' size='28' id='map-title' placeholder='optional'></div>";
+		content += "<div class='print-ui'>Page orientation<br><select id='page-setup'>";
+		content += "<option value='landscape'>Landscape</option>";
+		content += "<option value='portrait'>Portrait</option>";
+		content += "</select></div>";
+		content += "<span class='note'>Print area will generally be smaller than map area, adjust zoom level accordingly</span>";
+		content += "<div class='print-ui'><button id='print-btn' class='find-button' onclick='takeScreenshot()'>Print to PDF</button><img id='loader3' class='hide' src='images/ajax-loader.gif'>";
+
+		content += "<div id='print-link'></div>";
 		content += '</div></div>';	// end print div.
 
         menuObj = {
