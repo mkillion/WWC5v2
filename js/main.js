@@ -1430,23 +1430,24 @@ function(
 	takeScreenshot = function() {
 		var title = dom.byId("map-title").value;
 		var orientation = dom.byId("page-setup").value;
+		var classification = $("input[name='ct']:checked").val();
 
 		if (orientation === "landscape") {
 			var options = {
-	  			width: 910,
+	  			width: 914,
 	  			height: 525
 			};
 		} else {
 			var options = {
 	  			width: 680,
-	  			height: 775
+	  			height: 750
 			};
 		}
 
 		view.takeScreenshot(options).then(function(screenshot) {
 			$("#loader3").show();
 
-			var packet = { "screenshot": screenshot.dataUrl, "orientation": orientation, "title": title };
+			var packet = { "screenshot": screenshot.dataUrl, "orientation": orientation, "title": title, "classification": classification };
 
 			$.post( "printPDF.cfm", packet, function(response) {
 				var win = window.open(response, "target='_blank'");
@@ -1796,7 +1797,7 @@ function(
 		// content += "</div>";	// end distance div.
 
 		// Print/save:
-		content += "<div class='find-header esri-icon-right-triangle-arrow' id='print-tool'><span class='find-hdr-txt tools-txt'> Print Map to PDF</span></div>";
+		content += "<div class='find-header esri-icon-right-triangle-arrow' id='print-tool'><span class='find-hdr-txt tools-txt'> Print / Save Map</span><img src='images/smUpdated.gif'></div>";
 		content += "<div class='find-body hide' id='find-print-tool'>";
 
 		// content +="<div class='print-ui'>The Print Tool has been disabled while we attempt to fix a bug. In the meantime, use the browswer's print command (except in FireFox), or make a screen capture with the Snipping Tool (Windows) or cmd-shift-4 (Mac).</div>";
