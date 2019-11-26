@@ -165,7 +165,7 @@ function(
 	var naip2006Layer = new ImageryLayer( {url:"//services.kgs.ku.edu/arcgis7/rest/services/IMAGERY_STATEWIDE/FSA_NAIP_2006_Color/ImageServer", id:"2006", visible:false} );
 	var doqq2002Layer = new ImageryLayer( {url:"//services.kgs.ku.edu/arcgis7/rest/services/IMAGERY_STATEWIDE/Kansas_DOQQ_2002/ImageServer", id:"2002", visible:false} );
     var doqq1991Layer = new ImageryLayer( {url:"//services.kgs.ku.edu/arcgis7/rest/services/IMAGERY_STATEWIDE/Kansas_DOQQ_1991/ImageServer", id:"1991", visible:false} );
-	// var hroImageryLayer = new ImageryLayer( {url:"//services.kansasgis.org/arcgis7/rest/services/IMAGERY_STATEWIDE/Kansas_HRO_2014_Color/ImageServer", id:"2014 1ft", visible:false} );
+	var hroImageryLayer = new ImageryLayer( {url:"//services.kansasgis.org/arcgis7/rest/services/IMAGERY_STATEWIDE/Kansas_HRO_2014_Color/ImageServer", id:"2014 High Resolution", visible:false} );
 	var alluvialAqLayer = new MapImageLayer( {url:wwc5GeneralServiceURL, sublayers:[{id:4}], id:"Alluvial", visible:false} );
 	var dakotaAqLayer = new MapImageLayer( {url:wwc5GeneralServiceURL, sublayers:[{id:5}], id:"Dakota", visible:false} );
 	var glacialAqLayer = new MapImageLayer( {url:wwc5GeneralServiceURL, sublayers:[{id:6}], id:"Glacial Drift", visible:false} );
@@ -599,6 +599,7 @@ function(
 			naip2010Layer,
 			naip2012Layer,
 			naip2014Layer,
+			hroImageryLayer,
 			naip2015Layer,
 			naip2017Layer,
 			topoLayer,
@@ -837,22 +838,22 @@ function(
 	var distanceWidget = new DistanceMeasurement2D( {
 		container: "dist-meas",
 		viewModel: {
-			// mode: "geodesic",
+			mode: "geodesic",
 			unit: "us-feet",
 			view: view
 		}
 	} );
-	// distanceWidget.viewModel.modes.splice(0,2);
+	distanceWidget.viewModel.modes.splice(0,2);
 
 	var areaWidget = new AreaMeasurement2D( {
   		container: "area-meas",
 		viewModel: {
-			// mode: "geodesic",
+			mode: "geodesic",
 			unit: "square-us-feet",
 			view: view
 		}
 	} );
-	// areaWidget.viewModel.modes.splice(0,2);
+	areaWidget.viewModel.modes.splice(0,2);
 
 	var legend = new Legend( {
  		view: view,
@@ -1458,6 +1459,9 @@ function(
 
 
 	printMap = function() {
+		// NOTE: this function no longer used as of October 2019. PrintTasks were crashing the map servers after they were updated to 10.7.1.
+		// Using takeScreenshot instead and constructing a PDF w/ CF.
+
 		$("#loader3").show();
 		$("#print-link").html("");
 
@@ -1797,7 +1801,7 @@ function(
 		// content += "</div>";	// end distance div.
 
 		// Print/save:
-		content += "<div class='find-header esri-icon-right-triangle-arrow' id='print-tool'><span class='find-hdr-txt tools-txt'> Print / Save Map</span><img src='images/smUpdated.gif'></div>";
+		content += "<div class='find-header esri-icon-right-triangle-arrow' id='print-tool'><span class='find-hdr-txt tools-txt'> Print / Save Map</span></div>";
 		content += "<div class='find-body hide' id='find-print-tool'>";
 
 		// content +="<div class='print-ui'>The Print Tool has been disabled while we attempt to fix a bug. In the meantime, use the browswer's print command (except in FireFox), or make a screen capture with the Snipping Tool (Windows) or cmd-shift-4 (Mac).</div>";
@@ -2012,9 +2016,9 @@ function(
 		var aerialTocContent = "";
 		var aquiferTocContent = "";
 		var topoContent = "";
-		var aerialGroup = ["2017","2015","2014","2012","2010","2008","2006","2002","1991"];
+		var aerialGroup = ["2017","2015","2014-High-Resolution","2014","2012","2010","2008","2006","2002","1991"];
 		var aquiferGroup = ["Alluvial","Dakota","Flint-Hills","Glacial-Drift","High-Plains","Osage","Ozark"];
-		var transparentLayers = ["Topo","2015","2014 1ft","2002","1991","Section-Township-Range","Groundwater Mgmt Dist"];
+		var transparentLayers = ["Topo","2015","2014 High Resolution","2002","1991","Section-Township-Range","Groundwater Mgmt Dist"];
 
         for (var j=lyrs.length - 1; j>-1; j--) {
             var layerID = lyrs._items[j].id;
